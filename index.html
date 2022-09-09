@@ -165,61 +165,7 @@
 <footer id="footer" class="section-padding">
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
-                <div class="footer-contact">
-                    <h2>反馈 &amp; 留言 &amp; 提问 &amp; 申请</h2>
-                    <p>如果你有什么建议、问题或留言，那么就提出来吧！</p>
-                    <form id="feedback" onsubmit="return false;">
-                        <div class="footer-ct-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p>
-                                        <input name="nick" id="nick" type="text" placeholder="昵称" title="or 真实姓名" required="">
-                                    </p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>
-                                        <input name="contact" id="contact" type="text" placeholder="联系方式" title="请写明哪种方式，例如：&quot;QQ:123456&quot;" required="">
-                                    </p>
-                                </div>
-                            </div>
-                            <p>
-                                <input name="title" id="title" type="text" placeholder="标题" title="简单概述一下你的内容" required="">
-                            </p>
-                            <p>
-                                <textarea name="message" id="message" placeholder="内容" title="在这里写下详细的文字" cols="30" rows="10" required=""></textarea>
-                            </p>
-                            <p>
-                                <div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="./files/anchor.html" width="256" height="60" role="presentation" name="a-32ve72nzyl5u" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./files/saved_resource.html"></iframe></div><button class="g-recaptcha btn btn-dark" data-sitekey="6Le7D4wbAAAAAMvge_VknN0FuAp-tol8tc6lMKsu" data-callback="submitFeedback">提交
-                                </button>
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-2 col-md-offset-1 col-sm-4">
-                <div class="footer-widget">
-                    <h2>其他页面</h2>
-                    <ul>
-                        <li><a href="https://yzyweb.cn/devdoc.html">开发文档</a></li>
-                        <li><a href="https://yzyweb.cn/goods.html">好东西</a></li>
-                        <li><a href="https://yzyweb.cn/notes.html">备忘</a></li>
-                        <li><a href="https://yzyweb.cn/download/">下载</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <div class="footer-widget">
-                    <h2>链接</h2>
-                    <ul>
-                        <li><a href="https://github.com/z5215cool/" target="_blank" title="交个友吧">我的 GitHub</a></li>
-                        <li><a href="https://space.bilibili.com/29107119" target="_blank" title="发布视频的地方">哔哩哔哩</a></li>
-                        <li><a href="https://jq.qq.com/?_wv=1027&amp;k=5DaeB6o" target="_blank" title="快来和我们一起交流吧">QQ群</a>
-                        </li>
-<!--                        <li><a href="http://association.yzyweb.cn" target="_blank" title="在学校的社团">社团</a></li>-->
-<!--                        <li><a href="/minecraft.html" title="我的世界">Minecraft</a></li>-->
-                    </ul>
-                </div>
+              </div>
             </div>
             <div class="col-md-2 col-sm-4">
                 <div class="footer-widget">
@@ -238,58 +184,11 @@
                 <div class="footer-sep"></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-7">
-                <div class="footer-copyright">
-                    <p><a href="https://beian.miit.gov.cn/" target="_blank">渝ICP备19002497号</a><br>
-                        © 2022 yzy <span class="seprator">|</span> Designed by yzy <span class="seprator">|</span> Coded
-                        by yzy</p>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="footer-menu">
-                    <ul>
-                        <li><a href="https://yzyweb.cn/privacy-policy.html">隐私政策</a></li>
-<!--                        <li><a href="/user/">用户中心</a></li>-->
-                    </ul>
-                </div>
-            </div>
+        <div class="col-md-5">
+             </div>
         </div>
     </div>
 </footer>
-<script>
-    function submitFeedback(data) {
-        if ($("#nick").val() === "" || $("#contact").val() === "" || $("#title").val() === "" || $("#message").val() === "") {
-            Swal.fire('温馨提示', '有些信息没填哦！', 'info');
-            return false;
-        }
-        Swal.fire({html: '正在提交您的反馈……'});
-        Swal.showLoading(Swal.getConfirmButton());
-        $('#feedback').ajaxSubmit({
-            type: 'post',
-            dataType: 'json',
-            url: '/api/receive-feedback',
-            success: function (data, success, xhr, $form) {
-                // console.log(data); // 服务器返回数据
-                // console.log(success); // 成功信息
-                // console.log(xhr); // jQuery XHR 对象
-                // console.log($form); // jQuery 表单元素对象
-                if (data.success) {
-                    Swal.fire('反馈提交成功', data.message, 'success');
-                } else {
-                    Swal.fire('反馈提交失败', data.message, 'warning');
-                }
-            },
-            error: function (xhr, error, text, $form) {
-                // console.log(xhr); // jQuery XHR 对象
-                // console.log(`${error}: ${text}`); // 失败信息
-                // console.log($form); // jQuery 表带元素对象
-                Swal.fire('反馈过程中发生错误', '详细信息请见控制台！', 'error');
-            }
-        });
-        return true;
-    }
-</script>
 <!-- End footer -->
 
 <!-- Vue script -->
