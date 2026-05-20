@@ -76,27 +76,6 @@ const skillsContent = document.getElementsByClassName('skills__content'),
         el.addEventListener('click', toggleSkills)
       })
 
-/*==================== QUALIFICATION TABS ====================*/
-const tabs = document.querySelectorAll('[data-target]'),
-      tabContents = document.querySelectorAll('[data-content]')
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    console.log('click disparado')
-    const target = document.querySelector(tab.dataset.target)
-
-    tabContents.forEach(tabContent => {
-      tabContent.classList.remove('qualification__active')
-    })
-    target.classList.add('qualification__active')
-
-    tabs.forEach(tab => {
-      tab.classList.remove('qualification__active')
-    })
-    tab.classList.add('qualification__active')
-  })
-})
-
 /*==================== PORTFOLIO SWIPER  ====================*/
 let swiperPortfolio = new Swiper('.portfolio__container', {
     cssMode: true,
@@ -149,7 +128,6 @@ function scrollUp(){
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
 const iconTheme = 'uil-sun'
-const language = 'cn'
 
 // Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem('selected-theme')
